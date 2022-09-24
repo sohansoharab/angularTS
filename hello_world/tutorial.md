@@ -67,3 +67,62 @@ or in the CLI (name convention should be pascal case)
 
       constructor() { }
     }
+
+## **Using services in components** 
+Below is the recommended method
+
+**<courses.service.ts>**
+    export class CoursesService {
+        getCourses(num: number) {
+            var a = ["Course_1", "Course_2", "Course_3"];
+            return a.slice(0, num);
+        }
+    }
+
+**<courses.component.ts>**
+
+    import { CoursesService } from "./courses.service";
+
+    @Component({
+        selector: 'courses',
+        template: `
+            <h2>{{ title }}</h2>
+            <ul>
+                <li *ngFor="let c of courses">{{ c }}</li>
+            </ul>
+        `
+    })
+
+    export class CoursesComponent {
+        title = "List of courses";
+        constructor(service: CoursesService) {
+            this.courses = service.getCourses(2);
+        }
+    }
+
+**@NgModule of <app.module.ts>**
+
+Here in declaration section must contain the component name
+
+And provider section must contain the service name
+
+    @NgModule({
+      declarations: [
+        AppComponent,
+        CourseComponent
+      ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule
+      ],
+      providers: [
+        CoursesService
+      ],
+      bootstrap: [AppComponent]
+    })
+
+**app.component.html**
+
+Here, the selector in the template section of the component can be used as a custom HTML tag in this file 
+
+    <courses></courses>
