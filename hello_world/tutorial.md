@@ -15,7 +15,7 @@ Step-1: create a componment (like below) in a file called "<component_name.compo
 
 or in the CLI 
 
-> ng g c <ComponentName>
+> ng g c <<ComponentName>>
 
 ### **<component_name.component.ts>**
     import { Component } from "@angular/core";
