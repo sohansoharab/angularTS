@@ -13,9 +13,9 @@ To create a **component**
 
 Step-1: create a componment (like below) in a file called "<component_name.component.ts>" in src/app folder or src/app/<component_name>
 
-or in the CLI 
+or in the CLI (name convention should be pascal case)
 
-> ng g c <<ComponentName>>
+> ng g c <component_name>
 
 ### **<component_name.component.ts>**
     import { Component } from "@angular/core";
