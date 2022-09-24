@@ -55,7 +55,7 @@ Step-1: create a service (like below) in a file called "<service_name.service.ts
 
 or in the CLI (name convention should be pascal case)
 
-> ng g s <ServicetName>
+> ng g s <service_name>
 
 ### **<service_name.service.ts>**
     import { Injectable } from '@angular/core';
