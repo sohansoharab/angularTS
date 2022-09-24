@@ -69,7 +69,11 @@ or in the CLI (name convention should be pascal case)
     }
 
 ## **Using services in components** 
-Below is the recommended method
+Below is the recommended method,
+
+And auto import should work in all files wherever the services are invoked, if not, please invoke
+
+    import { CoursesService } from "./courses.service";
 
 **<courses.service.ts>**
 
