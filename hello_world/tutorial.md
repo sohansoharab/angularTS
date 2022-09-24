@@ -71,10 +71,6 @@ or in the CLI (name convention should be pascal case)
 ## **Using services in components** 
 Below is the recommended method,
 
-And auto import should work in all files wherever the services are invoked, if not, please invoke
-
-    import { CoursesService } from "./courses.service";
-
 **<courses.service.ts>**
 
     export class CoursesService {
@@ -131,3 +127,9 @@ And provider section must contain the service name
 Here, the selector in the template section of the component can be used as a custom HTML tag in this file 
 
     <courses></courses>
+
+**In all files**
+
+And auto import should work in all files wherever the services are invoked, if not, please invoke
+
+    import { CoursesService } from "./courses.service";
