@@ -72,6 +72,7 @@ or in the CLI (name convention should be pascal case)
 Below is the recommended method
 
 **<courses.service.ts>**
+
     export class CoursesService {
         getCourses(num: number) {
             var a = ["Course_1", "Course_2", "Course_3"];
