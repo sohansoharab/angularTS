@@ -63,10 +63,11 @@ export class CoursesComponent {
     // Second and recommended method of using services
     // Because it creates an Dependent instantiation of the service
     // We need to register it in the app module in the provide section
+    // registering to 'provider' and adding dependency(service: CoursesService) to the 'constructor' is called DEPENDENCY INJECTION
     // Otherwise it will not work
     // Below method of using services is called the dependency injection, as the constructor is now specified to used as a service instance
     constructor(service: CoursesService) {
-        this.courses = service.getCourses();
+        this.courses = service.getCourses(2);
     }
 
     // List of courses can be called from a server through http endpoints
