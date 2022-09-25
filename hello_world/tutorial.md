@@ -198,3 +198,10 @@ Further using the dependencies all at once
 One can use to update all the dependencies to their machine
 
 > npm install package.json
+
+Also, bootstrap needs to be inserted in the **style.css** like below
+
+> @import "~bootstrap/dist/css/bootstrap.css"
+
+## **Dynamic Class And Style Binding**
+

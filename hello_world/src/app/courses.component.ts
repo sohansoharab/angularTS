@@ -41,7 +41,11 @@ import { CoursesService } from "./courses.service";
         <img src="{{ img_src }}">
         <img [src]="img_src" />
         <img [attr.src]="img_src" />
-    `
+        <div>
+            <button class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
+        </div>
+    `,
+    styleUrls: ['./app.component.css']
 })
 
 
@@ -51,6 +55,7 @@ export class CoursesComponent {
     title = "List of courses";
     img_src = "../assets/img/google-rainbow-texture-1491566442.jpg";
     courses;
+    isRed = true;
 
     // // First method of using Services, but not recommended
     // // Because this methos is so fragile due to tight coupling betwwen service and the constructor
