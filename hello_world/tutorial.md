@@ -211,6 +211,8 @@ Here "isRed" variable is handled by the component/service
 
 > <button class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
 
-In case of style binding
+In case of style binding, below example shows an expression/condition based styling
+
+Those style references can found in the google by searching DOM style objects 
 
 > <button class="btn btn-info my-4" [style.backgroundColor]="isRed ? 'Red' : 'Blue'">Hello</button>
