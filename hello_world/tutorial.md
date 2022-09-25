@@ -224,10 +224,12 @@ Those style references can found in the google by searching DOM style objects
 
 Event can be binded like below in parenthesis
 
-> <button (click)="onClick()" class="btn">Hello</button>
+> <button (click)="onClick($event)" class="btn">Hello</button>
 
 The corresponding function is in the component. For example,
 
-    onClick() {
+    onClick($event) {
         alert("Button Clicked")
     }
+
+Here, $event will allow to access the activatd event propertis to be used

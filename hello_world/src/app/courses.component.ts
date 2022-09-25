@@ -42,7 +42,7 @@ import { CoursesService } from "./courses.service";
         <img [src]="img_src" />
         <img [attr.src]="img_src" />
         <div>
-            <button (click)="onClick()" class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
+            <button (click)="onClick($event)" class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
         </div>
     `,
     styleUrls: ['./app.component.css']
@@ -56,8 +56,9 @@ export class CoursesComponent {
     img_src = "../assets/img/google-rainbow-texture-1491566442.jpg";
     courses;
     isRed = true;
-    onClick() {
-        alert("Button Clicked")
+    onClick($event) {
+        $event.stopPropagation();
+        console.log("Button Clicked", $event)
     }
 
     // // First method of using Services, but not recommended
