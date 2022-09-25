@@ -133,3 +133,52 @@ Here, the selector in the template section of the component can be used as a cus
 And auto import should work in all files wherever the services are invoked, if not, please invoke
 
     import { CoursesService } from "./courses.service";
+
+### **Displaying Data**
+
+**String interpolation and property/attribute binding**
+
+String interpolation is recommended for Text represtantions such as heading, divs, spans etc
+
+Property binding method is not cleaner and smart for text representation
+
+Property binding is more efficient than text interpolation in case of passing properties to the DOM
+
+Normal property binding works in **one way**, which is any change in data in the component will reflect to the DOM,
+
+But any change in DOM will not reflect back in the component.
+
+Whereas string interpolation work both way, for example, for an input field, data can be change both in the DOM and component
+
+There is a difference between HTML and DOM,
+
+DOM is the hierarchy tree structure using HTML
+
+HTML is a markup language
+
+HTML has attributes and DOM has properties
+
+Most of the cases (99%) DOM properties and HTML attributes have one-2-one mapping
+
+But there may be exception, 
+
+there may be some attributes which does not have any DOM property mapping to it
+
+Property bindings are used in third/square brackets.
+
+In case of attribute binding, we need to use [attr.<attribute_name>], like this
+
+Safe use is, whether there is one-2-one mapping or not, we should use the [attr.] method,
+
+For both property and attribute binding
+
+Example:
+
+    // String Interpolation
+    <h1>{{ title }}</h1>
+
+    // Property Binding
+    <img [src]="img_src" />
+
+    // Property binding as Attribute
+    <img [attr.src]="img_src" />
