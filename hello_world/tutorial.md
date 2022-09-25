@@ -134,7 +134,7 @@ And auto import should work in all files wherever the services are invoked, if n
 
     import { CoursesService } from "./courses.service";
 
-### **Displaying Data**
+## **Displaying Data**
 
 **String interpolation and property/attribute binding**
 
