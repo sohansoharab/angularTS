@@ -183,6 +183,7 @@ Example:
     // Property binding as Attribute
     <img [attr.src]="img_src" />
 
+
 ## **Adding Bootstrap**
 
 To add bootstrap first we need to install it
@@ -202,6 +203,7 @@ One can use to update all the dependencies to their machine
 Also, bootstrap needs to be inserted in the **style.css** like below
 
 > @import "~bootstrap/dist/css/bootstrap.css"
+
 
 ## **Dynamic Class And Style Binding**
 
