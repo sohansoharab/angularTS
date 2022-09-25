@@ -185,3 +185,8 @@ Example:
 
 ## **Adding Bootstrap**
 
+To add bootstrap first we need to install it
+
+> npm install bootstrap --save
+
+The '--save' keyword will automatically add bootstrap to dependency injection 
