@@ -232,4 +232,4 @@ The corresponding function is in the component. For example,
         alert("Button Clicked")
     }
 
-Here, $event will allow to access the activatd event propertis to be used
+Here, **$event** will allow to access the activatd event propertis to be used
