@@ -185,5 +185,3 @@ Example:
 
 ## **Adding Bootstrap**
 
-abra ka dabra
-
