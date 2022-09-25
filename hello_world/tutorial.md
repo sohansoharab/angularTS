@@ -219,4 +219,15 @@ Those style references can found in the google by searching DOM style objects
 
 > <button class="btn btn-info my-4" [style.backgroundColor]="isRed ? 'Red' : 'Blue'">Hello</button>
 
+
 ## **Event Binding**
+
+Event can be binded like below in parenthesis
+
+> <button (click)="onClick()" class="btn">Hello</button>
+
+The corresponding function is in the component. For example,
+
+    onClick() {
+        alert("Button Clicked")
+    }
