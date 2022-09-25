@@ -210,3 +210,7 @@ A class called "redish" is added based on a boolean statre of a variable called 
 Here "isRed" variable is handled by the component/service
 
 > <button class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
+
+In case of style binding
+
+> <button class="btn btn-info my-4" [style.backgroundColor]="isRed ? 'Red' : 'Blue'">Hello</button>
