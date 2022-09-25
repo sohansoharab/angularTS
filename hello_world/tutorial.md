@@ -182,3 +182,5 @@ Example:
 
     // Property binding as Attribute
     <img [attr.src]="img_src" />
+
+## **Adding Bootstrap**
