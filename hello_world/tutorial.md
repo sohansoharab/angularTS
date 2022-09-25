@@ -205,3 +205,8 @@ Also, bootstrap needs to be inserted in the **style.css** like below
 
 ## **Dynamic Class And Style Binding**
 
+A class called "redish" is added based on a boolean statre of a variable called "isRed"
+
+Here "isRed" variable is handled by the component/service
+
+> <button class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
