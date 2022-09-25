@@ -9,5 +9,8 @@ do
 		git commit -m "hello"
 		git push
 	fi
+	modsec=$(date --utc --reference=tutorial.md +%s)
+	nowsec=$(date +%s)
+	delta=$((nowsec-modsec))
 done
 
