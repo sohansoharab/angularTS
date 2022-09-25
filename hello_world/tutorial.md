@@ -218,3 +218,5 @@ In case of style binding, below example shows an expression/condition based styl
 Those style references can found in the google by searching DOM style objects 
 
 > <button class="btn btn-info my-4" [style.backgroundColor]="isRed ? 'Red' : 'Blue'">Hello</button>
+
+## **Event Binding**
