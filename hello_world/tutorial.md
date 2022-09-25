@@ -184,3 +184,5 @@ Example:
     <img [attr.src]="img_src" />
 
 ## **Adding Bootstrap**
+
+abra ka dabra
