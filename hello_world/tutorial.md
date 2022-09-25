@@ -190,3 +190,11 @@ To add bootstrap first we need to install it
 > npm install bootstrap --save
 
 The '--save' keyword will automatically add bootstrap to dependency injection 
+
+It will update package.json for bootstrap entry, And
+
+Further using the dependencies all at once
+
+One can use to update all the dependencies to their machine
+
+> npm install package.json
