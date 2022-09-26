@@ -331,3 +331,5 @@ Also, we can bring our custom pipes as well
 `currency` will display any number as USD. To use custom currency symbol, `currency:'AUD':false`
 
 `date` formation is also allowed in angular
+
+## **Custom Pipes**
