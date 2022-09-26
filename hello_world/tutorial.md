@@ -297,3 +297,6 @@ Which is used like the following example
 
     <input type="text" (keyup.enter)="onKeyUp2()" [(ngModel)]="input_value">
 
+
+## **Pipes**
+
