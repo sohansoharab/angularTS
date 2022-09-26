@@ -273,6 +273,27 @@ In the component, simply,
 
 To avail two-way binding angular offers diretive called `NgModel`
 
+To use this, firstly we need to register it in the `app.module.ts` in the import section like below
+
+    import { FormsModule } from '@angular/forms';
+    @NgModule({
+      declarations: [
+        AppComponent,
+        CoursesComponent,
+        CourseComponent
+      ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+      ],
+      providers: [
+        CoursesService
+      ],
+      bootstrap: [AppComponent]
+    })
+
 Which is used like the following example
 
 <input type="text" (keyup.enter)="onKeyUp2()" [(ngModel)]="input_value">
+
