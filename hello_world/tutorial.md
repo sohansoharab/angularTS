@@ -267,3 +267,12 @@ In the component, simply,
     onKeyUp(email) {
         console.log(email)
     }
+
+
+## **Two-Way Binding**
+
+To avail two-way binding angular offers diretive called `NgModel`
+
+Which is used like the following example
+
+<input type="text" (keyup.enter)="onKeyUp2()" [(ngModel)]="input_value">
