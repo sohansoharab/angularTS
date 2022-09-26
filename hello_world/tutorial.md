@@ -295,5 +295,5 @@ To use this, firstly we need to register it in the `app.module.ts` in the import
 
 Which is used like the following example
 
-<input type="text" (keyup.enter)="onKeyUp2()" [(ngModel)]="input_value">
+    <input type="text" (keyup.enter)="onKeyUp2()" [(ngModel)]="input_value">
 
