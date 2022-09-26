@@ -300,3 +300,34 @@ Which is used like the following example
 
 ## **Pipes**
 
+Piping means, taking the output of one expression and doing something with it.
+
+For example, there is object in a component called `course`
+
+    export class CoursesComponent {
+        course = {
+            title: "Hello world best selling book",
+            rating: 14.9745,
+            readers: 36789,
+            price: 39.90,
+            releaseDate: new Date(2015, 3, 1)
+        }
+    }
+
+And In the template, we can pipe the outputs to make things more customized like uppercase, lowercase, number, currency, date etc 
+
+Also, we can bring our custom pipes as well
+
+    <h2>{{ course.title | uppercase }}</h2>
+    <h2>{{ course.rating | number:'3.2-4'}}</h2>
+    <h2>{{ course.readers | number}}</h2>
+    <h2>{{ course.price | currency:'AUD':false:'3.2-2' }}</h2>
+    <h2>{{ course.releaseDate | date:'shortDate' }}</h2>
+
+`uppercase` and `lowercase` simple enough to understand
+
+`number` make the output more readable and can be customized. In `number:'3.2-2'` means, interger part will be of minimum 3 digits. if there not enough digits, additional '0' will be added in the front. And after the `dot(.)` first digit is the minimum number of digits and secoond number is the maximum number
+
+`currency` will display any number as USD. To use custom currency symbol, `currency:'AUD':false`
+
+`date` formation is also allowed in angular

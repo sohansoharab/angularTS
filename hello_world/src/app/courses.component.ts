@@ -40,7 +40,7 @@ import { CoursesService } from "./courses.service";
         </ul>
         <!-- <img src="{{ img_src }}">
         <img [src]="img_src" /> -->
-        <img [attr.src]="img_src" />
+        <!-- <img [attr.src]="img_src" /> -->
         <div>
             <button (click)="onClick($event)" class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
         </div>
@@ -48,6 +48,11 @@ import { CoursesService } from "./courses.service";
         <input type="text" #email (keyup.enter)="onKeyUp(email.value)"> <br>
         <label for="">Two Way binding - NgModel</label><br>
         <input type="text" (keyup.enter)="onKeyUp2()" [value]="input_value" [(ngModel)]="input_value"><br>
+        <h2>{{ course.title | uppercase }}</h2>
+        <h2>{{ course.rating | number:'3.2-4'}}</h2>
+        <h2>{{ course.readers | number}}</h2>
+        <h2>{{ course.price | currency:'AUD':false:'3.2-2' }}</h2>
+        <h2>{{ course.releaseDate | date:'shortDate' }}</h2>
     `,
     styleUrls: ['./app.component.css']
 })
@@ -61,6 +66,13 @@ export class CoursesComponent {
     courses;
     isRed = true;
     input_value = "hello_world";
+    course = {
+        title: "Hello world best selling book",
+        rating: 14.9745,
+        readers: 36789,
+        price: 39.90,
+        releaseDate: new Date(2015, 3, 1)
+    }
     
     onClick($event) {
         $event.stopPropagation();
