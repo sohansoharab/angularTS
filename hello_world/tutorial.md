@@ -333,3 +333,38 @@ Also, we can bring our custom pipes as well
 `date` formation is also allowed in angular
 
 ## **Custom Pipes**
+
+Custom pipes are kind of custom filters. Such as summarizing any paragraph having characters beyond a limit etc.
+
+To do so, they can be created through a new file under `app` folder named `<pipe_name>.pipe.ts`. In that case my pipe name is `summary`
+
+        import { Pipe, PipeTransform } from '@angular/core';
+
+        @Pipe({
+            name: 'summary'
+        })
+
+        export class SummapryPipe implements PipeTransform {
+            transform(value: string, args?: number) {
+                let actualLimit = args? args : 20;
+                return value.substr(0, actualLimit) + '...';
+            }
+        }
+
+Above pipe, summarizes/slices a long string to look like its summarized.
+
+Now it needs to be registered in the declaration section in `app.module.ts`
+
+        ...
+        @NgModule({
+        declarations: [
+            AppComponent,
+            CoursesComponent,
+            CourseComponent,
+            SummapryPipe
+        ],
+        ...
+
+Now it can be used like any other pipes in the template.
+
+        <h1>{{ lipsum | summary }}</h1>

@@ -1,4 +1,5 @@
 
+import { getLocaleEraNames } from "@angular/common";
 import { Component } from "@angular/core";
 import { CoursesService } from "./courses.service";
 
@@ -53,10 +54,11 @@ import { CoursesService } from "./courses.service";
         <h2>{{ course.readers | number}}</h2>
         <h2>{{ course.price | currency:'AUD':false:'3.2-2' }}</h2>
         <h2>{{ course.releaseDate | date:'shortDate' }}</h2>
+        <h1>{{ lipsum | summary }}</h1>
+        
     `,
     styleUrls: ['./app.component.css']
 })
-
 
 
 // Component name should be and must be PascalCase
@@ -73,6 +75,7 @@ export class CoursesComponent {
         price: 39.90,
         releaseDate: new Date(2015, 3, 1)
     }
+    lipsum = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum a, et, asperiores culpa id illum omnis adipisci pariatur dicta velit quidem? Omnis exercitationem aliquid quam totam laboriosam assumenda. Ut aliquam harum recusandae consectetur quae nemo provident quo tenetur qui consequuntur?"
     
     onClick($event) {
         $event.stopPropagation();
