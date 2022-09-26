@@ -233,3 +233,15 @@ The corresponding function is in the component. For example,
     }
 
 Here, **$event** will allow to access the activatd event propertis to be used
+
+## **Event Filtering**
+
+* The **onKeyDown** event is triggered when the user presses a key.
+
+* The **onKeyUp** event is triggered when the user releases a key.
+
+Event can be filtered or activated by specifying the exact method of event initialization. 
+
+In the following example, ***keyup*** event is called and ***onKeyUp()*** function will be called only when `shift+control` is pressed
+
+> <input type="text" (keyup.shift.control)="onKeyUp()" [value]="input_value" [(ngModel)]="input_value">

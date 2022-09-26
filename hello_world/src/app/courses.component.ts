@@ -44,6 +44,7 @@ import { CoursesService } from "./courses.service";
         <div>
             <button (click)="onClick($event)" class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
         </div>
+        <input type="text" (keyup.shift.control)="onKeyUp()" [value]="input_value" [(ngModel)]="input_value">
     `,
     styleUrls: ['./app.component.css']
 })
@@ -56,9 +57,15 @@ export class CoursesComponent {
     img_src = "../assets/img/google-rainbow-texture-1491566442.jpg";
     courses;
     isRed = true;
+    input_value = "hello_world";
+    
     onClick($event) {
         $event.stopPropagation();
         console.log("Button Clicked", $event)
+    }
+
+    onKeyUp() {
+        console.log(this.input_value)
     }
 
     // // First method of using Services, but not recommended
