@@ -38,13 +38,16 @@ import { CoursesService } from "./courses.service";
         <ul>
             <li *ngFor="let c of courses">{{ c }}</li>
         </ul>
-        <img src="{{ img_src }}">
-        <img [src]="img_src" />
+        <!-- <img src="{{ img_src }}">
+        <img [src]="img_src" /> -->
         <img [attr.src]="img_src" />
         <div>
             <button (click)="onClick($event)" class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
         </div>
-        <input type="text" (keyup.enter)="onKeyUp()" [value]="input_value" [(ngModel)]="input_value">
+        <label for="">Template Variable + event filtering is used for pressing ENTER is used here</label><br>
+        <input type="text" #email (keyup.enter)="onKeyUp(email.value)"> <br>
+        <label for="">Two Way binding - NgModel</label><br>
+        <input type="text" (keyup.enter)="onKeyUp2()" [value]="input_value" [(ngModel)]="input_value"><br>
     `,
     styleUrls: ['./app.component.css']
 })
@@ -64,7 +67,11 @@ export class CoursesComponent {
         console.log("Button Clicked", $event)
     }
 
-    onKeyUp() {
+    onKeyUp(email) {
+        console.log(email)
+    }
+
+    onKeyUp2() {
         console.log(this.input_value)
     }
 

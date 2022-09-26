@@ -252,3 +252,18 @@ In the following example, ***keyup*** event is called and ***onKeyUp()*** functi
 
 ## **Template Variables**
 
+To simplify data visualization, template variables can be used.
+
+But this is also one-way binding.
+
+Which means, any change in the DOM will not reflect back to the component
+
+Template variables are denoted using `#` sign and need to be passed through the event activating function or need to used using `email.value`
+
+> <input type="text" #email (keyup.enter)="onKeyUp(email.value)">
+
+In the component, simply, 
+
+    onKeyUp(email) {
+        console.log(email)
+    }
