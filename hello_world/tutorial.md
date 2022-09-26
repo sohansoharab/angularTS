@@ -244,5 +244,6 @@ Event can be filtered or activated by specifying the exact method of event initi
 
 In the following example, ***keyup*** event is called and ***onKeyUp()*** function will be called only when `shift+control` is pressed
 
-
 > <input type="text" (keyup.shift.control)="onKeyUp()" [value]="input_value" [(ngModel)]="input_value">
+
+`enter`, `shift`, `control`, `alt`, digits like `a`, `b`, `7` etc

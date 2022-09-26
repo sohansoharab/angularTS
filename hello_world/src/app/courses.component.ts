@@ -44,7 +44,7 @@ import { CoursesService } from "./courses.service";
         <div>
             <button (click)="onClick($event)" class="btn btn-info my-4" [class.redish]="isRed">Hello</button>
         </div>
-        <input type="text" (keyup.shift.control)="onKeyUp()" [value]="input_value" [(ngModel)]="input_value">
+        <input type="text" (keyup.enter)="onKeyUp()" [value]="input_value" [(ngModel)]="input_value">
     `,
     styleUrls: ['./app.component.css']
 })
