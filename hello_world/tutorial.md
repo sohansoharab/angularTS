@@ -234,6 +234,7 @@ The corresponding function is in the component. For example,
 
 Here, **$event** will allow to access the activatd event propertis to be used
 
+
 ## **Event Filtering**
 
 * The **onKeyDown** event is triggered when the user presses a key.
@@ -247,3 +248,7 @@ In the following example, ***keyup*** event is called and ***onKeyUp()*** functi
 > <input type="text" (keyup.shift.control)="onKeyUp()" [value]="input_value" [(ngModel)]="input_value">
 
 `enter`, `shift`, `control`, `alt`, digits like `a`, `b`, `7` etc
+
+
+## **Template Variables**
+
