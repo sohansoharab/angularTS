@@ -5,16 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
-import { CourseComponent } from './course/course.component';
 import { CoursesService } from './courses.service';
 import { SummapryPipe } from './summary.pipe';
+import { NewComponentComponent } from './new-component/new-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
-    CourseComponent,
-    SummapryPipe
+    SummapryPipe,
+    NewComponentComponent
   ],
   imports: [
     BrowserModule,

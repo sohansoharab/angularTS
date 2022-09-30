@@ -1,3 +1,8 @@
-<h1>Angular</h1>
+<div class="container">
+    <h1>Angular</h1>
 
-<courses></courses>
+    <!-- <courses></courses> -->
+    <app-new-component></app-new-component>
+    <app-new-component [label_prop]="label_input" (click)="onClickSubmit()"></app-new-component>
+    <h1>{{msg}}</h1>
+</div> 

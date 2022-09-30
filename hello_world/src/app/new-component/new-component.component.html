@@ -1,0 +1,27 @@
+<h2>Simple Forms</h2>
+
+<div class="row form-control d-flex justify-content-center mx-auto">
+    <div class="row ">
+        <label for="Email" class="col-1">{{label.email}}</label>
+        <input class="col-3" type="text" [(ngModel)]="email">
+        
+        <label for="Username" class="col-1">{{label.username}}</label>
+        <input class="col-3" type="text" [(ngModel)]="username">
+    
+        <label for="Password" class="col-1">{{label.password}}</label>
+        <input class="col-3" type="password" [(ngModel)]="password">
+    </div>
+
+    <div class="row  mt-4">
+        <button class="btn col-12 btn-success" (click)="onSubmit();">Submit</button>
+    </div>
+</div>
+
+<div class="row mt-2" [class.d-none]="show">
+    <ul *ngFor="let object of a1">
+        <h2>Good People</h2>
+        <li>{{object.email}}</li>
+        <li>{{object.username}}</li>
+        <li>{{object.password}}</li>
+    </ul>
+</div>

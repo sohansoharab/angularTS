@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hello_WORLD';
+  label_input = {
+    email: "GMAIL",
+    username: "Username",
+    password: "Password"
+  }
+  msg: string = "cgyhfghj";
+
+  onClickSubmit() {
+    this.msg = 'Hello Click';
+  }
 }

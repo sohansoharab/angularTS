@@ -337,7 +337,7 @@ Also, we can bring our custom pipes as well
 Custom pipes are kind of custom filters. Such as summarizing any paragraph having characters beyond a limit etc.
 
 To do so, they can be created through a new file under `app` folder named `<pipe_name>.pipe.ts`. In that case my pipe name is `summary`
-
+ 
         import { Pipe, PipeTransform } from '@angular/core';
 
         @Pipe({
@@ -368,3 +368,76 @@ Now it needs to be registered in the declaration section in `app.module.ts`
 Now it can be used like any other pipes in the template.
 
         <h1>{{ lipsum | summary }}</h1>
+
+
+## **Reusable Components - Component API**
+
+To make any component reusable, it needs to have functionality like **input/output** to the other apps/components/templates.
+
+For example,
+
+There is a component in this project directory called **new-component**. 
+
+It is a simple form type component. I want to use this same form into different component in some other components.
+
+But with different labels and functionalities.
+
+In order to do so, this component needs have the dynamic input outputs in order to be controlled by other component.
+
+Base component is as follows: <new-component>
+
+        import { Component } from '@angular/core';
+        import { obj } from './obj';
+
+        @Component({
+        selector: 'app-new-component',
+        templateUrl: './new-component.component.html',
+        styleUrls: ['./new-component.component.css']
+        })
+        export class NewComponentComponent {
+
+        label = {
+            email: "Email",
+            username: "Username",
+            password: "Password"
+        }
+        ... // Some other functions
+        }
+
+So, from this component, let's say, I want different labels given as input by other component.
+
+In order do so, we have to use a new decorator called **Input**. And changes are as follows:
+
+        import { Component, Input } from '@angular/core';
+        import { obj } from './obj';
+
+        @Component({
+        selector: 'app-new-component',
+        templateUrl: './new-component.component.html',
+        styleUrls: ['./new-component.component.css']
+        })
+        export class NewComponentComponent {
+
+        @Input('label_prop') label = {
+            email: "Email",
+            username: "Username",
+            password: "Password"
+        }
+        ... // Some other functions
+        }
+
+Here, inside the <Input> decorator, the term used is called alias. If we need to use this component in so many places and
+
+if we intent to change the name of the input from 'label' to any other variable, aliasing prevents the hassles from changing every 
+
+label keyword from every other places.
+
+So, the template used by base component will the 'label' keyword
+
+And if aliasing is used,  then the alias keyword 'label_prop' will be used in the reusable template.
+
+For example.
+
+        <app-new-component [label_prop]="label_input"></app-new-component>
+
+Here, the label_input is coming from where the component will be fed through. 
