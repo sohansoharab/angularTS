@@ -8,13 +8,15 @@ import { CoursesComponent } from './courses.component';
 import { CoursesService } from './courses.service';
 import { SummapryPipe } from './summary.pipe';
 import { NewComponentComponent } from './new-component/new-component.component';
+import { PanelComponent } from './panel/panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
     SummapryPipe,
-    NewComponentComponent
+    NewComponentComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,9 @@ import { NewComponentComponent } from './new-component/new-component.component';
   providers: [
     CoursesService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    PanelComponent
+  ]
 })
 export class AppModule { }

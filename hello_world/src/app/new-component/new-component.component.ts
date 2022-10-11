@@ -14,7 +14,7 @@ export class NewComponentComponent {
     password: "Password"
   }
 
-  @Output() click = new EventEmitter();
+  @Output() clickEvent = new EventEmitter();
 
   email: string = "";
   username: string = "";
@@ -22,7 +22,7 @@ export class NewComponentComponent {
   show = true;
   a1: obj[] = [];
 
-  onSubmit() {
+  onSubmit(a1) {
     this.show = false;
     const a2: obj = {
       email: this.email,
@@ -30,6 +30,6 @@ export class NewComponentComponent {
       password: this.password
     }
     this.a1.push(a2)
-    this.click.emit
+    this.clickEvent.emit(a1)
   }
 }

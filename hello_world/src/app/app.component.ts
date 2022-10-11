@@ -14,7 +14,8 @@ export class AppComponent {
   }
   msg: string = "cgyhfghj";
 
-  onClickSubmit() {
+  onClickSubmit(event) {
     this.msg = 'Hello Click';
+    console.log(event)
   }
 }

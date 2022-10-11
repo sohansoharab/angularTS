@@ -374,6 +374,8 @@ Now it can be used like any other pipes in the template.
 
 To make any component reusable, it needs to have functionality like **input/output** to the other apps/components/templates.
 
+### Input
+
 For example,
 
 There is a component in this project directory called **new-component**. 
@@ -441,3 +443,126 @@ For example.
         <app-new-component [label_prop]="label_input"></app-new-component>
 
 Here, the label_input is coming from where the component will be fed through. 
+
+### Output
+
+For example, in the same component **new-component** , if we want to trigger a event as an output whenerver the **new-component** is clicked,
+
+We can do that by creating an output event from this root component (**new-component**)
+
+In order to do so, we need to follow the following syntax to use the Output. And it needs to imported as well.
+
+        import { Component, EventEmitter, Input, Output } from '@angular/core';
+        
+        @Component({
+        selector: 'app-new-component',
+        templateUrl: './new-component.component.html',
+        styleUrls: ['./new-component.component.css']
+        })
+        export class NewComponentComponent {
+
+            ...
+
+        @Output() click = new EventEmitter();
+
+          onSubmit() {
+                this.show = false;
+                const a2: obj = {
+                email: this.email,
+                username: this.username,
+                password: this.password
+                }
+                this.a1.push(a2)
+                this.click.emit()
+            }
+        }
+
+In the app.component.html
+
+        <app-new-component [label_prop]="label_input" (click)="onClickSubmit();"></app-new-component>
+
+In the app.component.ts 
+
+        onClickSubmit() {
+        this.msg = "Event is triggered";
+        }
+
+This function will be triggered whenever the component is click. I repeat, the whole component is clicked due to <click> event.
+
+To initiate the custom event, like, event will be triggered whenver the <submit> button is clicked,
+
+then don't use the event name as the built-in ones. So, we need to change the event name in the <app-new-component> .
+
+        import { Component, EventEmitter, Input, Output } from '@angular/core';
+        
+        @Component({
+        selector: 'app-new-component',
+        templateUrl: './new-component.component.html',
+        styleUrls: ['./new-component.component.css']
+        })
+        export class NewComponentComponent {
+
+        email: string = "";
+        username: string = "";
+        password: string = "";
+        show = true;
+        a1: obj[] = [];
+
+        @Output() clickCustomEvent = new EventEmitter();
+
+          onSubmit(a1) {
+                this.show = false;
+                const a2: obj = {
+                email: this.email,
+                username: this.username,
+                password: this.password
+                }
+                this.a1.push(a2)
+                this.clickCustomEvent.emit(a1)
+            }
+        }
+
+In the app.component.html
+
+        <app-new-component [label_prop]="label_input" (clickCustomEvent)="onClickSubmit($event);"></app-new-component>
+
+Here, $event will pass the intended values from the event. In this case, it will emit object a1 as declared in the <app-new-component> component
+
+In the app.component.ts 
+
+        onClickSubmit(event) {
+        this.msg = "Event is triggered";
+        console.log(event)
+        }
+
+
+## ng-content
+
+If we want to provide custom content to our reusable components, we can use ng-container
+
+For example, let's use a component in the app.component from panel.component
+
+In the panel.component.html
+
+        <div class="card">
+            <div class="card-header">
+                <ng-content select=".heading"></ng-content>
+            </div>
+            <div class="card-body">
+                <ng-content select=".body"></ng-content>
+            </div>
+        </div>
+
+Here, ng-content injection points are identified using the ***select*** property/attribute
+
+In the app.component.html
+
+        <app-panel>
+            <div class="heading">Header from app.component.html</div>
+            <div class="body">Body from app.component.html</div>
+        </app-panel>
+
+Contents are being injected using the same selectors. Here complex html markup can be used inside those divs as well.
+
+
+## ng-container
