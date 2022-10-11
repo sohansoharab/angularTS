@@ -566,3 +566,9 @@ Contents are being injected using the same selectors. Here complex html markup c
 
 
 ## ng-container
+
+From above example, if we do not want use any html tag to pass the data in the app.component.html, 
+
+we can do that by replacing the tag (div in the above example) with <ng-container>
+
+> <ng-container class="heading">Header from app.component.html</ng-container>
