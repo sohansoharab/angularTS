@@ -7,6 +7,50 @@
     <h1>{{msg}}</h1>
     <app-panel>
         <div class="heading">Header from app.component.html</div>
-        <div class="body">Body from app.component.html</div>
+        <div class="body">
+            <!-- <h3>ngIf directive</h3>
+            <div *ngIf="courses.length > 0; then coursesList else noCourse"></div>
+            <ng-template #coursesList>List of courses</ng-template>
+            <ng-template #noCourse>No courses available</ng-template>
+            
+            <br><br>
+            <h3>Hidden property</h3>
+            <div [hidden]="courses.length==0">List of Courses</div>
+            <div [hidden]="courses.length>0">No courses Yet</div>
+
+            <br>
+            <h3>ngSwitch</h3>
+            <ul class="nav nav-pills">
+                <li><button class="btn btn-primary" [class.active]="viewMode == 'map'" (click)="viewMode='map'">Map</button></li>
+                <li><button class="btn btn-primary" [class.active]="viewMode == 'list'" (click)="viewMode='list'">List</button></li>
+            </ul>
+            <div [ngSwitch]="viewMode">
+                <div *ngSwitchCase="'map'">Map view</div>
+                <div *ngSwitchCase="'list'">List view</div>
+                <div *ngSwitchDefault>Default ngSwitch Option</div>
+            </div> 
+
+            <br>
+            <h3>ngFor</h3>
+            <ul>
+                <li class="py-2" *ngFor="let course of courses; even as isEven; odd as isOdd; index as i; first as isFirst; last as isLast">
+                    <span>{{i}} - </span> 
+                    <span>{{course.name}}</span> 
+                    <span [class.display-2]="isFirst" [class.display-1]="isLast">{{course.name}}</span> 
+                    <span *ngIf="isEven"> - EVEN</span>
+                    <span *ngIf="isOdd"> - ODD</span>
+                    <span *ngIf="isOdd"> - ODD</span>
+                    <span><button class="mx-3 btn btn-danger" (click)="onRemove(course)">Remove</button></span>
+                </li>
+            </ul>
+
+            <br>
+            <h3>ngFor Change Detection</h3>
+            <div class="row">
+                <input type="text" class="col-6" [(ngModel)]="itemValue" [appCustomDirective]="'lowercase'">
+                <div class="col-1"></div>
+                <button class="col-2 btn btn-success" (click)="onAdd(itemValue)">Add</button>
+            </div> -->
+        </div>
     </app-panel>
 </div> 

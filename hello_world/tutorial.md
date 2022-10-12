@@ -572,3 +572,151 @@ From above example, if we do not want use any html tag to pass the data in the a
 we can do that by replacing the tag (div in the above example) with <ng-container>
 
 > <ng-container class="heading">Header from app.component.html</ng-container>
+
+
+# Directives
+
+## ngIf
+
+ngIf directive allows templates to be rendered on the basis of conditions
+
+If conditions do not meet to true, then the template will not be rendered, syntax is like below
+
+        <div *ngIf="courses.length > 0; then coursesList else noCourse"></div>
+        <ng-template #coursesList>List of courses</ng-template>
+        <ng-template #noCourse>No courses available</ng-template>
+
+Here, courses is defined in the component like 
+
+> courses = [1, 2]
+
+In this method, ( <then ... else ...> ) template variables must be used in <ng-template>
+
+## Hidden property
+
+hidden property is a built in attribute for hiding html markups, but it renders the template and not show it.
+
+In larger tree markups, ngIf should be used instead of using hidden attribute
+
+        <div [hidden]="courses.length==0">List of Courses</div>
+        <div [hidden]="courses.length>0">No courses Yet</div>
+
+
+## ngSwitch
+
+If we need to compare a value of a field or property against multiple values, we will use ngSwitch.
+
+For example, in the component,
+
+> viewMode = 'map';
+
+In the template,
+
+        <ul class="nav nav-pills">
+            <li><button class="btn btn-primary" [class.active]="viewMode == 'map'" (click)="viewMode='map'">Map</button></li>
+            <li><button class="btn btn-primary" [class.active]="viewMode == 'list'" (click)="viewMode='list'">List</button></li>
+        </ul>
+        <div [ngSwitch]="viewMode">
+            <div *ngSwitchCase="'map'">Map view</div>
+            <div *ngSwitchCase="'list'">List view</div>
+            <div *ngSwitchDefault>Default ngSwitch Option</div>
+        </div>
+
+
+## ngFor
+
+To display/access values in a iterative manner, ngFor is used in templates. 
+
+For example, there is a list in the component that we want to display in the template. In the component
+
+        courses = [
+            {id: 1, name: 'course_1'},
+            {id: 2, name: 'course_2'},
+            {id: 3, name: 'course_3'},
+            {id: 4, name: 'course_4'},
+            {id: 5, name: 'course_5'}
+        ];
+
+In the template,
+
+        <ul>
+            <li *ngFor="let course of courses; even as isEven; odd as isOdd; index as i; first as isFirst; last as isLast">
+                <span>{{i}} - </span> 
+                <span [class.display-2]="isFirst" [class.display-1]="isLast">{{course.name}}</span> 
+                <span *ngIf="isEven"> - EVEN</span>
+                <span *ngIf="isOdd"> - ODD</span>
+                <span *ngIf="isOdd"> - ODD</span>
+            </li>
+        </ul>
+
+In case of using ngFor, there are some useful facilities such as index:number, even:boolean, odd:boolean, first:boolean, last:boolean
+
+booleans will be triggered if conditions are met, like first is true for the fist item in the list and so on.
+
+### trackBy
+
+In case of larger ngFor tree, loading the whole tree over and over agin can downgrade the performance of the app. 
+
+Angular provides <trackBy> utility with <ngFor> so that unchanged items need not to be reloaded again and again if there is no change in the values.
+
+        <ul>
+            <li class="py-2" *ngFor="let course of courses; index as i; trackBy: trackByFn">
+                <span>{{course.name}}</span> 
+            </li>
+        </ul>
+
+In the component, if the function is just void, still by default angular will perform trackBy utility to track the changes
+
+        trackByFn() {}
+
+
+## Leading asterisk (*)
+
+leading asterisk surrounds usual markups within <ng-template> tags
+
+## custom directives
+
+Let's say if we want to make the value of an input field to uppercase/lower/reformat, we can use custom directives
+
+To create a custom directive,
+
+> ng g d custom_directive
+
+In the example we have tried to create simple custom directive which takes the parameter to whether make the input data uppercase or lowercase
+
+Remember that, this directive is used only for visualization purpose. it will not pass the formatted data back to the component.
+
+The directive is as follows,
+
+        import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+
+        @Directive({
+        selector: '[appCustomDirective]'
+        })
+        export class CustomDirectiveDirective {
+
+        @Input('appCustomDirective') format;
+        constructor(private el: ElementRef) { }
+
+        @HostListener('blur') onBlur() {
+            let value = this.el.nativeElement.value;
+            if (this.format == 'lowercase') {
+            this.el.nativeElement.value = value.toLowerCase();
+            } else if (this.format == 'uppercase') {
+            this.el.nativeElement.value = value.toUpperCase();
+            }
+        }
+        }
+
+Here, HostListner has multiple events such as 
+
+focus (whenever we click in the input field to write something, 
+
+it is in the focused mode, so by clicking to the field this event will be triggered) 
+
+another is blur (whenever we click away from the input field, this event is triggered)
+
+The **ElementRef** allows to catch the actual object from the DOM.
+
+So, wherever this custom-diretive is used, this ElementRef can access the corresponding value through nativeElement.value property
+
