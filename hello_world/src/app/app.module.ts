@@ -10,6 +10,7 @@ import { SummapryPipe } from './summary.pipe';
 import { NewComponentComponent } from './new-component/new-component.component';
 import { PanelComponent } from './panel/panel.component';
 import { CustomDirectiveDirective } from './custom-directive.directive';
+import { TemplateFormComponent } from './template-form/template-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CustomDirectiveDirective } from './custom-directive.directive';
     SummapryPipe,
     NewComponentComponent,
     PanelComponent,
-    CustomDirectiveDirective
+    CustomDirectiveDirective,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,
